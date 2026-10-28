@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function MealCard({ meal }) {
+const MealCard = ({ meal }) => {
   return (
     <Link to={`/meal/${meal.idMeal}`} className="meal-card">
       <img src={meal.strMealThumb} alt={meal.strMeal} />

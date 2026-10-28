@@ -1,14 +1,13 @@
-function SearchBar({ value, onChange, onSearch }) {
+const SearchBar = ({ value, onChange }) => {
   return (
-    <form className="search-form" onSubmit={onSearch}>
+    <form className="search-form" onSubmit={(event) => event.preventDefault()}>
       <input
         type="text"
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        placeholder="Search meals..."
-        aria-label="Search meals"
+        placeholder="Search chicken meals..."
+        aria-label="Search chicken meals"
       />
-      <button type="submit">Search</button>
     </form>
   )
 }

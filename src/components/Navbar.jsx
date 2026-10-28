@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function Navbar() {
+const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="brand">Meal Explorer</Link>

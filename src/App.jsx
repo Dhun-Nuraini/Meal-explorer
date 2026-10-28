@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import MealDetails from './pages/MealDetails'
 import NotFound from './pages/NotFound'
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app">

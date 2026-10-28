@@ -1,51 +1,46 @@
 import { useEffect, useState } from 'react'
 import MealCard from '../components/MealCard'
 import SearchBar from '../components/SearchBar'
-import { searchMeals } from '../services/meals'
+import { getChickenMeals } from '../services/meals'
 
-function Home() {
-  const [query, setQuery] = useState('chicken')
+const Home = () => {
+  const [query, setQuery] = useState('')
   const [meals, setMeals] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
-  async function loadMeals(searchTerm) {
-    setLoading(true)
-    setError('')
-
-    try {
-      const results = await searchMeals(searchTerm)
-      setMeals(results)
-    } catch {
-      setMeals([])
-      setError('Could not load meals. Check your internet connection and try again.')
-    } finally {
-      setLoading(false)
-    }
-  }
-
   useEffect(() => {
-    loadMeals('chicken')
+    const loadMeals = async () => {
+      try {
+        const results = await getChickenMeals()
+        setMeals(results)
+      } catch {
+        setError('Could not load chicken meals. Check your internet connection and try again.')
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadMeals()
   }, [])
 
-  function handleSearch(event) {
-    event.preventDefault()
-    loadMeals(query.trim())
-  }
+  const filteredMeals = meals.filter((meal) =>
+    meal.strMeal.toLowerCase().includes(query.toLowerCase().trim())
+  )
 
   return (
     <section>
-      <SearchBar value={query} onChange={setQuery} onSearch={handleSearch} />
+      <SearchBar value={query} onChange={setQuery} />
 
-      {loading && <p className="message">Loading meals...</p>}
+      {loading && <p className="message">Loading chicken meals...</p>}
       {error && <p className="message">{error}</p>}
-      {!loading && !error && meals.length === 0 && (
-        <p className="message">No meals found.</p>
+      {!loading && !error && filteredMeals.length === 0 && (
+        <p className="message">No chicken meals found.</p>
       )}
 
-      {!loading && meals.length > 0 && (
+      {!loading && filteredMeals.length > 0 && (
         <div className="meal-grid">
-          {meals.map((meal) => (
+          {filteredMeals.map((meal) => (
             <MealCard key={meal.idMeal} meal={meal} />
           ))}
         </div>

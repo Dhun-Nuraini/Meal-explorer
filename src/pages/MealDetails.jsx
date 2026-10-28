@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { getIngredients, getMeal } from '../services/meals'
 
-function MealDetails() {
+const MealDetails = () => {
   const { id } = useParams()
   const [meal, setMeal] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
   useEffect(() => {
-    async function loadMeal() {
+    const loadMeal = async () => {
       setLoading(true)
       setError('')
 

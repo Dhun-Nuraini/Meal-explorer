@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-function NotFound() {
+const NotFound = () => {
   return (
     <div className="message">
       <p>Page not found.</p>
