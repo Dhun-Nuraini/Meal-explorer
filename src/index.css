@@ -1,0 +1,296 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #111827;
+  color: #f9fafb;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  min-height: 66px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: #111827;
+  border-bottom: 1px solid #374151;
+}
+
+.brand {
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.nav-link {
+  color: #d1d5db;
+}
+
+.nav-link:hover,
+.back-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+  flex: 1;
+}
+
+.search-form {
+  max-width: 620px;
+  display: flex;
+  gap: 10px;
+  margin: 0 auto 28px;
+}
+
+.search-form input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  color: #f9fafb;
+  background: #1f2937;
+  border: 1px solid #4b5563;
+  border-radius: 5px;
+  outline: none;
+}
+
+.search-form input:focus {
+  border-color: #9ca3af;
+}
+
+.search-form button {
+  padding: 12px 20px;
+  color: #fff;
+  background: #374151;
+  border: 1px solid #4b5563;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background: #4b5563;
+}
+
+.meal-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.meal-card {
+  overflow: hidden;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 5px;
+  transition: border-color 0.15s ease;
+}
+
+.meal-card:hover {
+  border-color: #9ca3af;
+}
+
+.meal-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.meal-card-info {
+  padding: 12px;
+}
+
+.meal-card h2 {
+  margin: 0 0 7px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.meal-card p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.message {
+  padding: 36px 12px;
+  text-align: center;
+  color: #d1d5db;
+}
+
+.recipe-page {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #d1d5db;
+}
+
+.recipe-top {
+  display: grid;
+  grid-template-columns: minmax(220px, 340px) 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.recipe-image {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.recipe-summary h1 {
+  margin: 0 0 20px;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.recipe-summary p {
+  margin: 12px 0;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+.recipe-summary strong {
+  color: #fff;
+}
+
+.recipe-summary a,
+.message a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+.recipe-section {
+  margin-top: 30px;
+}
+
+.recipe-section h2 {
+  margin: 0 0 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #374151;
+  font-size: 22px;
+}
+
+.ingredients-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ingredients-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 11px 0;
+  border-bottom: 1px solid #293445;
+  color: #d1d5db;
+}
+
+.ingredients-list li span:last-child {
+  text-align: right;
+  color: #9ca3af;
+}
+
+.instructions {
+  margin: 0;
+  color: #d1d5db;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.footer {
+  padding: 16px 24px;
+  border-top: 1px solid #374151;
+  color: #9ca3af;
+  text-align: center;
+  font-size: 13px;
+}
+
+@media (max-width: 1100px) {
+  .meal-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 850px) {
+  .meal-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .recipe-top {
+    grid-template-columns: minmax(180px, 280px) 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-content {
+    padding: 18px 14px;
+  }
+
+  .navbar {
+    padding: 15px 16px;
+  }
+
+  .meal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .meal-card-info {
+    padding: 9px;
+  }
+
+  .meal-card h2 {
+    font-size: 14px;
+  }
+
+  .recipe-top {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .recipe-image {
+    max-width: 380px;
+  }
+
+  .recipe-summary h1 {
+    font-size: 25px;
+  }
+
+  .search-form {
+    gap: 7px;
+  }
+
+  .search-form button {
+    padding: 12px 14px;
+  }
+}
