@@ -4,14 +4,6 @@ import Home from './pages/Home'
 import MealDetails from './pages/MealDetails'
 import NotFound from './pages/NotFound'
 
-const PageRoutes = () => {
-  const location = useLocation()
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname])}
-
-
 const App = () => {
   return (
     <BrowserRouter>
